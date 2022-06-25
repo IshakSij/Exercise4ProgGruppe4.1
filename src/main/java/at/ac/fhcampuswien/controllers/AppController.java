@@ -63,7 +63,7 @@ public class AppController {
      * @return article list
      */
     public List<Article> getTopHeadlinesAustria() {
-        NewsApi api = new NewsApi("corona", Country.at, Endpoint.TOP_HEADLINES);
+        NewsApi api = new NewsApi("Ukraine", Country.at, Endpoint.TOP_HEADLINES);
         articles = new ArrayList<>();
         try {
             NewsResponse response = api.requestData();

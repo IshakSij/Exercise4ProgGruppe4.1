@@ -10,6 +10,17 @@ public class Article {
     private String publishedAt;
     private String content;
 
+    public Article(Builder builder) {
+        this.author = builder.author;
+        this.title = builder.title;
+        this.description = builder.description;
+        this.url = builder.url;
+        this.urlToImage = builder.urlToImage;
+        this.publishedAt = builder.publishedAt;
+        this.content = builder.content;
+        this.source = builder.source;
+    }
+
     public Article(String author, String title){
         this.author = author;
         this.title = title;
@@ -45,6 +56,61 @@ public class Article {
 
     public String getTitle() {
         return title;
+    }
+
+    public static class Builder {
+        private String author;
+        private String title;
+        private Source source;
+        private String description;
+        private String url;
+        private String urlToImage;
+        private String publishedAt;
+        private String content;
+
+        public Builder(){}
+
+        // Each function need to return the Builder itself
+        public Builder author(String author){
+            this.author = author;
+            return this;
+        }
+
+        public Builder title(String title){
+            this.title = title;
+            return this;
+        }
+
+        public Builder source(Source source){
+            this.source = source;
+            return this;
+        }
+
+        public Builder description(String description){
+            this.description = description;
+            return this;
+        }
+        public Builder url(String url){
+            this.url = url;
+            return this;
+        }
+        public Builder urlToImage(String urlToImage){
+            this.urlToImage = urlToImage;
+            return this;
+        }
+        public Builder publishedAt(String publishedAt){
+            this.publishedAt = publishedAt;
+            return this;
+        }
+        public Builder content(String content){
+            this.content = content;
+            return this;
+        }
+
+        //build() returns a new object of Book
+        public Article build(){
+            return new Article(this);
+        }
     }
 
     @Override
