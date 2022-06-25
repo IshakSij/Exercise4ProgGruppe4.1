@@ -13,8 +13,18 @@ import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
+    // Add a private static field for storing singleton instance
+    private static AppController instance = null;
 
-    public AppController() {}
+    // "Make constructor of class private"
+    private AppController() {}
+
+    public static AppController getInstanceAppController() {
+        if (instance == null){
+            instance = new AppController();
+        }
+        return instance;
+    }
 
     public void setArticles(List<Article> articles){
         this.articles = articles;
